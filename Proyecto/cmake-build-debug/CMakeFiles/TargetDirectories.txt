@@ -1,3 +1,0 @@
-C:/Users/esteb/Documents/GitKraken/Caso10/Proyecto/cmake-build-debug/CMakeFiles/Caso10.dir
-C:/Users/esteb/Documents/GitKraken/Caso10/Proyecto/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/esteb/Documents/GitKraken/Caso10/Proyecto/cmake-build-debug/CMakeFiles/rebuild_cache.dir
