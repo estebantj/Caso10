@@ -8,9 +8,10 @@ void evaluateMatroids(struct matroid matroidsList[], int size) {
 		prueba = matroidsList[i];
 		int(*numeros)[5] = prueba.MS;	
 		for (int j = 0; j < prueba.size; j++) {
-			int num = ((int *)numeros)[j];
-			printf("%d \n", num);
-			
+			int num = ((int*)numeros)[j];
+
+			//bool result = (*prueba.func)(num);
+			printf("%d \n", num);	
 		}
 		printf("\n");
 	}

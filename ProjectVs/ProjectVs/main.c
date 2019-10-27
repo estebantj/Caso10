@@ -2,7 +2,6 @@
 #include <stdbool.h>
 #include "matroids.h"
 
-
 bool isEven(int pNumber) {
 	return pNumber % 2 == 0;
 }
@@ -25,7 +24,7 @@ int main() {
 	prueba1.MS = &numeros1;
 	prueba1.MI = &result;
 	prueba1.size = 5;
-	prueba1.func = isEven;
+	prueba1.func = &isEven;
 
 	struct matroid matroids[2] = { prueba, prueba1 };
 
