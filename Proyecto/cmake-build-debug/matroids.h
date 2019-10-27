@@ -8,9 +8,10 @@
 #include <stdio.h>
 
 struct matroid {
-    int *MS[5];
-    void *MI[5];
+    void *MS;
+    void *MI;
     void *func;
+    int size;
 };
 
 void evaluateMatroids();

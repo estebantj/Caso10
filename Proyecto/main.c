@@ -9,24 +9,31 @@ bool isEven(int pNumber) {
 
 int main() {
     struct matroid prueba;
-    *prueba.MS[0] = 1;
-    *prueba.MS[1] = 2;
-    *prueba.MS[2] = 3;
-    *prueba.MS[3] = 4;
-    *prueba.MS[4] = 5;
+    int numeros[] = {1 ,2, 3 ,4, 5};
+    int result[5] = {-1};
+    prueba.MS = &numeros;
+    prueba.MI = &result;
+    prueba.size = 5;
     prueba.func = isEven;
 
+    int (*p)[] = &numeros;
+
+    //printf("%p \n", &numeros);
+
     struct matroid prueba1;
-    prueba1.MS[0] = (int*)1;
-    prueba1.MS[1] = (int*)2;
-    prueba1.MS[2] = (int*)3;
-    prueba1.MS[3] = (int*)4;
-    prueba1.MS[4] = (int*)5;
+    int numeros1[] = {4,4,5,6,7};
+    int result2[5] = {-1};
+    prueba1.MS = &numeros1;
+    prueba1.MI = &result;
+    prueba1.size = 5;
     prueba1.func = isEven;
 
     struct matroid matroids[2] = {prueba, prueba1};
 
-    printf("%p \n",&matroids);
+    //printf("%p \n",&matroids);
+
+    // De esta manera se puede obtener el arreglo
+    int (*numeros3)[5] = prueba.MS;
 
     evaluateMatroids(matroids, sizeof(matroids) / sizeof(matroids[0]));
     return 0;

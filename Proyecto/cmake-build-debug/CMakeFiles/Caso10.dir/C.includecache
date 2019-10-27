@@ -6,15 +6,11 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/esteb/Documents/GitKraken/Caso10/Proyecto/cmake-build-debug/matroids.c
+matroids.h
 C:/Users/esteb/Documents/GitKraken/Caso10/Proyecto/cmake-build-debug/matroids.h
-stdio.h
--
 
-C:/Users/esteb/Documents/GitKraken/Caso10/Proyecto/main.c
+C:/Users/esteb/Documents/GitKraken/Caso10/Proyecto/cmake-build-debug/matroids.h
 stdio.h
 -
-stdbool.h
--
-cmake-build-debug/matroids.h
-C:/Users/esteb/Documents/GitKraken/Caso10/Proyecto/cmake-build-debug/matroids.h
 
