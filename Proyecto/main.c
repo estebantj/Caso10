@@ -14,7 +14,6 @@ int main() {
     prueba.MS = &numeros;
     prueba.MI = &result;
     prueba.size = 5;
-    prueba.func = isEven;
 
     int (*p)[] = &numeros;
 

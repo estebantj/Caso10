@@ -6,6 +6,8 @@
 #define CASO10_MATROIDS_H
 
 #include <stdio.h>
+#include <stdbool.h>
+#include <omp.h>
 
 struct matroid {
     void *MS;

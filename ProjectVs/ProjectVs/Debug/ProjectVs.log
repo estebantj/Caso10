@@ -1,0 +1,6 @@
+﻿  main.c
+c:\users\esteb\documents\gitkraken\caso10\projectvs\projectvs\main.c(38): warning C4013: 'system' sin definir; se supone que extern devuelve como resultado int
+c:\users\esteb\documents\gitkraken\caso10\projectvs\projectvs\main.c(18): warning C4048: subíndices de matriz distintos: 'int (*)[0]' y 'int (*)[5]'
+  matroids.c
+  Generando código...
+  ProjectVs.vcxproj -> C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\Debug\ProjectVs.exe
