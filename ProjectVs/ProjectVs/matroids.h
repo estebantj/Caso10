@@ -6,7 +6,7 @@
 struct matroid {
 	void *MS;
 	void *MI;
-	void *func;
+	void (*func)(void*);
 	int size;
 };
 

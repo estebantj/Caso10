@@ -1,4 +1,7 @@
 ﻿  main.c
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(37,8): warning C4013:  'system' sin definir; se supone que extern devuelve como resultado int
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(17,1): warning C4048:  subíndices de matriz distintos: 'int (*)[0]' y 'int (*)[5]'
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(22,23): warning C4028:  parámetro formal 1 distinto de la declaración
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(33,24): warning C4028:  parámetro formal 1 distinto de la declaración
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(41,24): warning C4028:  parámetro formal 1 distinto de la declaración
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(51,8): warning C4013:  'system' sin definir; se supone que extern devuelve como resultado int
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(23,1): warning C4048:  subíndices de matriz distintos: 'int (*)[0]' y 'int (*)[5]'
   ProjectVs.vcxproj -> C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\Debug\ProjectVs.exe

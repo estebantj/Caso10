@@ -2,8 +2,14 @@
 #include <stdbool.h>
 #include "matroids.h"
 
-bool isEven(int pNumber) {
-	return pNumber % 2 == 0;
+void isEven(int pNumber) {
+	printf("%d \n", pNumber);
+	if (pNumber % 2 == 0) {
+		printf("Es par \n");
+	}
+	else {
+		printf("Impar \n");
+	}
 }
 
 int main() {
@@ -13,7 +19,7 @@ int main() {
 	prueba.MS = &numeros;
 	prueba.MI = &result;
 	prueba.size = 5;
-
+	prueba.func = &isEven;
 	int(*p)[] = &numeros;
 
 	//printf("%p \n", &numeros);
@@ -26,7 +32,15 @@ int main() {
 	prueba1.size = 5;
 	prueba1.func = &isEven;
 
-	struct matroid matroids[2] = { prueba, prueba1 };
+	struct matroid prueba3;
+	char letras[] = { 'A', 'B', 'c', 'd', 'e' };
+	char result3[5] = { 'b' };
+	prueba3.MS = &letras;
+	prueba3.MI = &result3;
+	prueba3.size = 5;
+	prueba3.func = &isEven;
+
+	struct matroid matroids[3] = { prueba, prueba1, prueba3};
 
 	//printf("%p \n",&matroids);
 
