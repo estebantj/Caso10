@@ -1,10 +1,4 @@
-﻿  main.c
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(31,30): warning C4013: 'malloc' sin definir; se supone que extern devuelve como resultado int
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(32,8): warning C4013: 'memcpy' sin definir; se supone que extern devuelve como resultado int
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(35,6): warning C4013: 'free' sin definir; se supone que extern devuelve como resultado int
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(49,27): warning C4048: subíndices de matriz distintos: 'void *(*)[2][4]' y 'void *[2][4]'
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(78,23): warning C4028: parámetro formal 1 distinto de la declaración
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(97,27): warning C4113: 'bool (__cdecl *)()' es distinto en las listas de parámetros de 'void (__cdecl *)(void *)'
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(144,8): warning C4013: 'system' sin definir; se supone que extern devuelve como resultado int
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(36): warning C4716: 'swap': debe devolver un valor
+﻿  matroids.c
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\matroids.c(9,1): warning C4047: 'inicializando': 'void *(*)[4]' es distinto en los niveles de direccionamiento indirecto de 'void **'
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\matroids.c(38,32): warning C4013: 'malloc' sin definir; se supone que extern devuelve como resultado int
   ProjectVs.vcxproj -> C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\Debug\ProjectVs.exe

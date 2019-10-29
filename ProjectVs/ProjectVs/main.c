@@ -35,13 +35,21 @@ void* swap(void* vp1, void* vp2, const int size) { // Still with problems, see t
 	free(buffer);
 }
 
+void printMI(void* (*MI)[3], int size) {
+	for (int i = 0; i < size; i++) {
+		int number = *(int*)((*MI)[i]);
+		printf("%d - ", number);
+	}
+	printf("\n");
+}
+
 int main() {
 	void* MS[3] = { &(int) { 56 }, &(int){57}, &(int){58} };
-	void* MI[3] = { &(int) { 0 } };
+	void* MI[3] = { &(int) { 0 }, &(int) { 0 }, &(int) { 0 } };
 
 	void* MS2[3] = { &(int) { 61 }, &(int){60}, &(int){59} };
-	void* MI2[3] = { &(int) { 0 } };
-	void* Matroids[2][4] = { {MS, MI, &(int) { 3 }, &isEven}, {MS2, MI2, &(int) { 3 }, &isEven} };
+	void* MI2[3] = { &(int) { 0 }, &(int) { 0 }, &(int) { 0 } };
+	void* Matroids[2][4] = { {&MS, &MI, &(int) { 3 }, &isEven}, {MS2, MI2, &(int) { 3 }, &isEven} };
 	//void (*fun_ptr)(int) = &isEven;
 
 	//void* Matroids[4] = { &(void*) { MS }, &(void*){MI},&(void*) { MS2 }, &(void*){MI2} };
@@ -49,7 +57,10 @@ int main() {
 	evaluateMatroids(Matroids, sizeof(Matroids) / sizeof(Matroids[0]));
 	// Resultados
 	// Matroid1
-
+	printf("%d \n", *(int*)MI[0]);
+	printMI(&MI, 3);
+	printMI(&MI2, 3);
+	/*
 	// -------------- Test #1 -------------- //
 	struct matroid test1;
 	int numbers1[] = { 50, 23, 36, 74, 89 };
@@ -140,7 +151,7 @@ int main() {
 	//int k[] = { 4, 5, 6, 7, 8 };
 	//void* ptr = &k[1];
 	//printf("%d \n", *(int*)ptr); // Shows number 5
-
+	*/
 	system("PAUSE");
 	return 0;
 }
