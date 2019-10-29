@@ -1,0 +1,19 @@
+﻿  main.c
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(31,30): warning C4013: 'malloc' sin definir; se supone que extern devuelve como resultado int
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(31,51): warning C4312: 'conversión de tipo': conversión de 'int' a 'char *' de mayor tamaño
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(32,8): warning C4013: 'memcpy' sin definir; se supone que extern devuelve como resultado int
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(35,6): warning C4013: 'free' sin definir; se supone que extern devuelve como resultado int
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(49,27): warning C4048: subíndices de matriz distintos: 'void *(*)[2][4]' y 'void *[2][4]'
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(77,23): warning C4028: parámetro formal 1 distinto de la declaración
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(96,27): warning C4113: 'bool (__cdecl *)()' es distinto en las listas de parámetros de 'void (__cdecl *)(void *)'
+  matroids.c
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(143,8): warning C4013: 'system' sin definir; se supone que extern devuelve como resultado int
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\matroids.c(11,14): warning C4013: 'malloc' sin definir; se supone que extern devuelve como resultado int
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\matroids.c(11,41): warning C4047: '=': 'void *' es distinto en los niveles de direccionamiento indirecto de 'int'
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\matroids.c(12,10): warning C4477: 'printf' : la cadena de formato '%d' requiere un argumento de tipo 'int', pero el argumento variádico 1 tiene el tipo 'size_t'
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\matroids.c(12,10): message : considere el uso de ' %zd' en la cadena de formato
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\matroids.c(6,1): warning C4047: 'inicializando': 'void *(*)[4]' es distinto en los niveles de direccionamiento indirecto de 'void **'
+  Generando código...
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\matroids.c(53,53): warning C4312: 'conversión de tipo': conversión de 'int' a 'char *' de mayor tamaño
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(36): warning C4716: 'swap': debe devolver un valor
+  ProjectVs.vcxproj -> C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\x64\Debug\ProjectVs.exe

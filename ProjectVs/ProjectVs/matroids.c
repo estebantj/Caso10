@@ -6,11 +6,24 @@ void evaluateMatroids(void* (*Matroids)[2][4], int size) {
 		void* (*Matroid)[4] = (*Matroids)[i];	// Se saca la matroid
 		int arraySize = *((int*)((*Matroid)[2]));	// Se saca el tamaño del conjunto S
 		void* (*Elements)[3] = (*Matroid)[0];	// Se saca el conjunto S
+		bool (*func)(void*) = (*Matroid)[3];	// Se saca la funcion para evaluar los elementos del conjunto S
+		void* *MI = malloc(arraySize * sizeof(void*));
+		printf("%d \n", sizeof(void*));
 		for (int amountOfElements = 0; amountOfElements < arraySize; amountOfElements++) {
-			//void* func = (*Matroid)[3];
-			//(*func)();
-			printf("");
+			//int number = *(int*)((*Elements)[amountOfElements]);
+			//printf("%d \n", number);
+
+			// Se pasa el elemento a la funcion
+			bool result = (*func)(((*Elements)[amountOfElements]));
+			if (result) {
+				MI[amountOfElements] = (*Elements)[amountOfElements];
+			}
+			else {
+				MI[amountOfElements] = &(int){ -1 };
+			}
 		}
+		printf("MI Matroid#%d \n", i);
+		(*Matroid)[1] = MI;
 	}
 
 	/*

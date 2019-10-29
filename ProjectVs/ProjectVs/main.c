@@ -6,13 +6,15 @@ bool isMultFive(int pNumber) {
 	return (pNumber % 10 == 5 || pNumber % 10 == 0) ? true : false;
 }
 
-void isEven() {
-	int number = 4;
+bool isEven(void *pNumber) {
+	int number = *(int*)(pNumber);
 	if (number % 2 == 0) {
 		printf("%d es par \n", number);
+		return true;
 	}
 	else {
 		printf("%d es impar \n", number);
+		return false;
 	}
 	//return number % 2 == 0;
 }
@@ -35,16 +37,18 @@ void* swap(void* vp1, void* vp2, const int size) { // Still with problems, see t
 
 int main() {
 	void* MS[3] = { &(int) { 56 }, &(int){57}, &(int){58} };
-	void* MI[3];
+	void* MI[3] = { &(int) { 0 } };
+
 	void* MS2[3] = { &(int) { 61 }, &(int){60}, &(int){59} };
-	void* MI2[3];
+	void* MI2[3] = { &(int) { 0 } };
 	void* Matroids[2][4] = { {MS, MI, &(int) { 3 }, &isEven}, {MS2, MI2, &(int) { 3 }, &isEven} };
-	void (*fun_ptr)(int) = &isEven;
+	//void (*fun_ptr)(int) = &isEven;
 
 	//void* Matroids[4] = { &(void*) { MS }, &(void*){MI},&(void*) { MS2 }, &(void*){MI2} };
 
 	evaluateMatroids(Matroids, sizeof(Matroids) / sizeof(Matroids[0]));
-
+	// Resultados
+	// Matroid1
 
 	// -------------- Test #1 -------------- //
 	struct matroid test1;
