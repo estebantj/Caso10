@@ -10,4 +10,4 @@ struct matroid {
 	int size;
 };
 
-void evaluateMatroids();
+void evaluateMatroids(void* (*Matroids)[2][4], int size);

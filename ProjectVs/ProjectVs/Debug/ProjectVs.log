@@ -1,7 +1,4 @@
-﻿  main.c
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(22,23): warning C4028:  parámetro formal 1 distinto de la declaración
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(33,24): warning C4028:  parámetro formal 1 distinto de la declaración
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(41,24): warning C4028:  parámetro formal 1 distinto de la declaración
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(51,8): warning C4013:  'system' sin definir; se supone que extern devuelve como resultado int
-C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\main.c(23,1): warning C4048:  subíndices de matriz distintos: 'int (*)[0]' y 'int (*)[5]'
+﻿  matroids.c
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\matroids.c(6,1): warning C4047: 'inicializando': 'void *(*)[4]' es distinto en los niveles de direccionamiento indirecto de 'void **'
+C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\ProjectVs\matroids.c(44,32): warning C4013: 'malloc' sin definir; se supone que extern devuelve como resultado int
   ProjectVs.vcxproj -> C:\Users\esteb\Documents\GitKraken\Caso10\ProjectVs\Debug\ProjectVs.exe

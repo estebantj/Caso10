@@ -1,19 +1,34 @@
 #include "matroids.h"
 
-void evaluateMatroids(struct matroid matroidsList[], int size) {
+void evaluateMatroids(void* (*Matroids)[2][4], int size) {
+	//void* Matroid;
+	for (int i = 0; i < size; i++) {
+		void* (*Matroid)[4] = (*Matroids)[i];	// Se saca la matroid
+		int arraySize = *((int*)((*Matroid)[2]));	// Se saca el tamaño del conjunto S
+		void* (*Elements)[3] = (*Matroid)[0];	// Se saca el conjunto S
+		for (int amountOfElements = 0; amountOfElements < arraySize; amountOfElements++) {
+			//void* func = (*Matroid)[3];
+			//(*func)();
+			printf("");
+		}
+	}
+
+	/*
 	struct matroid test;
 	for (int i = 0; i < size; i++) {
 		int tid = omp_get_thread_num();
-		printf("Hello world from omp thread %d\n", tid);
-		test = matroidsList[i];
-		int(*numeros)[5] = test.MS;
-		for (int j = 0; j < test.size; j++) {
-			int num = ((int*)numeros)[j];
-			printf("%d \n", num);
 
-		}
-		printf("\n");
+		printf("Hello world from omp thread %d\n", tid);
+		test = (matroidsList)[i];
+		int sizeN = sizeof(test.MS);
+		int(*numbers)[10] = test.MS;
+		//void* p = (*test.func)(test.MS, test.size, &test.MI);
+		//test.MI = p;
+		printf("pausa\n");
 	}
+	test = matroidsList[0];
+	test = matroidsList[1];
+	*/
 }
 
 void evaluate(struct matroid matroidsList[], int size) {

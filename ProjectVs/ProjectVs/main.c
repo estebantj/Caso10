@@ -6,8 +6,15 @@ bool isMultFive(int pNumber) {
 	return (pNumber % 10 == 5 || pNumber % 10 == 0) ? true : false;
 }
 
-bool isEven(int pNumber) {
-	return pNumber % 2 == 0;
+void isEven() {
+	int number = 4;
+	if (number % 2 == 0) {
+		printf("%d es par \n", number);
+	}
+	else {
+		printf("%d es impar \n", number);
+	}
+	//return number % 2 == 0;
 }
 
 bool isUneven(int pNumber) {
@@ -27,27 +34,33 @@ void* swap(void* vp1, void* vp2, const int size) { // Still with problems, see t
 }
 
 int main() {
+	void* MS[3] = { &(int) { 56 }, &(int){57}, &(int){58} };
+	void* MI[3];
+	void* MS2[3] = { &(int) { 61 }, &(int){60}, &(int){59} };
+	void* MI2[3];
+	void* Matroids[2][4] = { {MS, MI, &(int) { 3 }, &isEven}, {MS2, MI2, &(int) { 3 }, &isEven} };
+	void (*fun_ptr)(int) = &isEven;
+
+	//void* Matroids[4] = { &(void*) { MS }, &(void*){MI},&(void*) { MS2 }, &(void*){MI2} };
+
+	evaluateMatroids(Matroids, sizeof(Matroids) / sizeof(Matroids[0]));
+
 
 	// -------------- Test #1 -------------- //
-	// -------------- Matroid 1.1 -------------- //
 	struct matroid test1;
-	int numbers1[] = { 55, 20, 35, 75, 89 };
-	int resultN1[sizeof(numbers1) / sizeof(numbers1[0])] = { -1 };
+	int numbers1[] = { 50, 23, 36, 74, 89 };
+	int result[5] = { -1 };
 	test1.MS = &numbers1;
-	test1.MI = &resultN1;
-	test1.size = sizeof(numbers1) / sizeof(numbers1[0]);
-	test1.func = isMultFive;
+	test1.MI = &result;
+	test1.size = sizeof(numbers1) / sizeof(numbers1[0]);;
+	test1.func = &isEven;
 
-	// -------------- Pointer VOID tests -------------- //
-	int(*p)[] = &numbers1;
-	//printf("%p \n", &numbers1);
-
-	// -------------- Matroid 1.2 -------------- //
+	// -------------- Test #2 -------------- //
 	struct matroid test2;
 	int numbers2[] = { 114, 253, 625, 789, 800, 194, 310, 811, 212 };
-	int resultN2[sizeof(numbers2) / sizeof(numbers2[0])] = { -1 };
+	int result2[9] = { -1 };
 	test2.MS = &numbers2;
-	test2.MI = &resultN2;
+	test2.MI = &result2;
 	test2.size = sizeof(numbers2) / sizeof(numbers2[0]);
 	test2.func = isEven;
 
@@ -116,7 +129,7 @@ int main() {
 
 	// -------------- Evaluate -------------- //
 	//evaluateMatroids(matroids, sizeof(matroids) / sizeof(matroids[0]));
-	evaluate(matroids, sizeof(matroids) / sizeof(matroids[0]));
+	//evaluate(matroids, sizeof(matroids) / sizeof(matroids[0]));
 	//evaluate(matroids2, sizeof(matroids2) / sizeof(matroids2[0])); //To use this you must change the print from %d to %s
 
 	// -------------- Pointer VOID tests -------------- //
@@ -126,4 +139,4 @@ int main() {
 
 	system("PAUSE");
 	return 0;
-}}
+}
