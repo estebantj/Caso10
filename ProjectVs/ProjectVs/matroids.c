@@ -3,7 +3,9 @@
 void evaluateMatroids(void* (*Matroids)[2][4], int size) {
 	//void* Matroid;
 	int i, amountOfElements;
+#pragma omp parallel for private(i, amountOfElements)
 	for (i = 0; i < size; i++) {
+		printf("i = %d threadId = %d \n", i, omp_get_thread_num());
 		void* (*Matroid)[4] = (*Matroids)[i];	// Se saca la matroid
 		int arraySize = *((int*)((*Matroid)[2]));	// Se saca el tamaño del conjunto S
 		void* (*MS)[] = (*Matroid)[0];	// Se saca el conjunto S
