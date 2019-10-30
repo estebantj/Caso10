@@ -3,8 +3,6 @@
 void evaluateMatroids(void* (*Matroids)[2][4], int size) {
 	//void* Matroid;
 	int i, amountOfElements;
-#pragma omp parallel
-#pragma omp for
 	for (i = 0; i < size; i++) {
 		void* (*Matroid)[4] = (*Matroids)[i];	// Se saca la matroid
 		int arraySize = *((int*)((*Matroid)[2]));	// Se saca el tamaño del conjunto S
@@ -12,9 +10,9 @@ void evaluateMatroids(void* (*Matroids)[2][4], int size) {
 		bool (*func)(void*) = (*Matroid)[3];	// Se saca la funcion para evaluar los elementos del conjunto S
 		//void** MI = malloc(arraySize * sizeof(void*));
 		void* (*MI)[] = (*Matroid)[1];
+
 		//printf("%d \n", sizeof(void*));
 		for (amountOfElements = 0; amountOfElements < arraySize; amountOfElements++) {
-
 			// Se pasa el elemento a la funcion
 			bool result = (*func)((*MS)[amountOfElements]);
 			if (result) {

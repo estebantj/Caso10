@@ -27,6 +27,17 @@ bool isPalindrome() {
 	return true;
 }
 
+bool isUpper(void *pLetter) {
+	char letter = *((char*)(pLetter));
+	int num = (int)letter;
+	if (num >= 60 && num <= 90) {
+		printf("%c es mayuscula \n", letter);
+		return true;
+	}
+	printf("%c no es mayuscula \n", letter);
+	return false;
+}
+
 void* swap(void* vp1, void* vp2, const int size) { // Still with problems, see the link https://www.bogotobogo.com/cplusplus/pointers2_voidpointers_arrays.php
 	char* buffer = (char*)malloc(sizeof(char) * size);
 	memcpy(buffer, vp1, size);
@@ -43,23 +54,35 @@ void printMI(void* (*MI)[3], int size) {
 	printf("\n");
 }
 
+void printMI2(void* (*MI)[3], int size) {
+	for (int i = 0; i < size; i++) {
+		char number = *(char*)((*MI)[i]);
+		printf("%c - ", number);
+	}
+	printf("\n");
+}
+
 int main() {
 	void* MS[3] = { &(int) { 56 }, &(int){57}, &(int){58} };
 	void* MI[3] = { &(int) { 0 }, &(int) { 0 }, &(int) { 0 } };
 
 	void* MS2[3] = { &(int) { 61 }, &(int){60}, &(int){59} };
 	void* MI2[3] = { &(int) { 0 }, &(int) { 0 }, &(int) { 0 } };
-	void* Matroids[2][4] = { {&MS, &MI, &(int) { 3 }, &isEven}, {MS2, MI2, &(int) { 3 }, &isEven} };
-	//void (*fun_ptr)(int) = &isEven;
+
+	void* MS3[3] = { &(char) { 'A' }, &(char) { 'C' }, &(char) { 'd' } };
+	void* MI3[3] = { &(char) { ' ' }, &(char) { ' ' }, &(char) { ' ' } };
+
+	void* Matroids[3][4] = { {&MS, &MI, &(int) { 3 }, &isEven}, {MS2, MI2, &(int) { 3 }, &isEven}, {&MS3, &MI3, &(int) { 3 }, &isUpper} };
 
 	//void* Matroids[4] = { &(void*) { MS }, &(void*){MI},&(void*) { MS2 }, &(void*){MI2} };
 
-	evaluateMatroids(Matroids, sizeof(Matroids) / sizeof(Matroids[0]));
+	evaluateMatroids(&Matroids, sizeof(Matroids) / sizeof(Matroids[0]));
 	// Resultados
 	// Matroid1
-	printf("%d \n", *(int*)MI[0]);
+	//printf("%d \n", *(int*)MI[0]);
 	printMI(&MI, 3);
 	printMI(&MI2, 3);
+	printMI2(&MI3, 3);
 	/*
 	// -------------- Test #1 -------------- //
 	struct matroid test1;
