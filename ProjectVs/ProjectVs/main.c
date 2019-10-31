@@ -28,20 +28,15 @@ bool isEven(void* pNumber) {
 	}
 }
 
-bool isBlackJack(void* pNumber) {
-	int firstCard = rand() % 4 + 13;
-	int secondCard = *(int*)(pNumber);
+bool isAlphabet(void* pNumber) {
+	int asciiLetter = *(int*)(pNumber);
 
-	if (firstCard + secondCard == 21) {
-		// printf("Winner, You got BLACKJACK with %d and %d \n", firstCard, secondCard);
-		return true;
-	}
-	else if (firstCard + secondCard < 21) {
-		// printf("You did not get BLACKJACK either lose with %d and %d \n", firstCard, secondCard);
+	if ((asciiLetter >= 60 && asciiLetter <= 90) || (asciiLetter >= 97 && asciiLetter <= 122)) {
+		printf("This is the letter %c \n", asciiLetter);
 		return true;
 	}
 	else {
-		// printf("Loser, You did not get BLACKJACK with %d and %d \n", firstCard, secondCard);
+		printf("This is not a letter, it is %c \n", asciiLetter);
 		return false;
 	}
 }
@@ -85,23 +80,23 @@ int main() {
 	void* MatroidsA[3][4] = { {&MSA1, &MIA1, &(int) { 4 }, &isUpper}, {&MSA2, &MIA2, &(int) { 3 }, &isEven}, {&MSA3, &MIA3, &(int) { 5 }, &isMultFive} };
 
 	// SECOND PART
-	void* MSB1[4] = { &(int) { 6 }, &(int) { 9 }, &(int) { 5 }, &(int) { 7 } };
+	void* MSB1[4] = { &(int) { 72 }, &(int) { 101 }, &(int) { 108 }, &(int) { 80 } };
 	void* MIB1[4] = { &(int) { 0 }, &(int) { 0 }, &(int) { 0 }, &(int) { 0 } };
 
-	void* MSB2[3] = { &(int) { 5 }, &(int) { 6 }, &(int) { 7 } };
+	void* MSB2[3] = { &(int) { 65 }, &(int) { 72 }, &(int) { 80 } };
 	void* MIB2[3] = { &(int) { 0 }, &(int) { 0 }, &(int) { 0 } };
 
-	void* MSB3[4] = { &(int) { 7 }, &(int) { 5 }, &(int) { 10 }, &(int) { 6 } };
+	void* MSB3[4] = { &(int) { 109 }, &(int) { 101 }, &(int) { 80 }, &(int) { 191 } };
 	void* MIB3[4] = { &(int) { 0 }, &(int) { 0 }, &(int) { 0 }, &(int) { 0 } };
 
-	void* MSB4[5] = { &(int) { 11 }, &(int) { 8 }, &(int) { 6 }, &(int) { 9 }, &(int) { 5 } };
+	void* MSB4[5] = { &(int) { 126 }, &(int) { 80 }, &(int) { 96 }, &(int) { 60 }, &(int) { 72 } };
 	void* MIB4[5] = { &(int) { 0 }, &(int) { 0 }, &(int) { 0 }, &(int) { 0 }, &(int) { 0 } };
 
-	void* MSB5[6] = { &(int) { 5 }, &(int) { 9 }, &(int) { 8 }, &(int) { 10 }, &(int) { 6 }, &(int) { 7 } };
+	void* MSB5[6] = { &(int) { 37 }, &(int) { 175 }, &(int) { 72 }, &(int) { 59 }, &(int) { 63 }, &(int) { 80 } };
 	void* MIB5[6] = { &(int) { 0 }, &(int) { 0 }, &(int) { 0 }, &(int) { 0 }, &(int) { 0 }, &(int) { 0 } };
 
-	void* MatroidsB[5][4] = { {&MSB1, &MIB1, &(int) { 4 }, &isBlackJack}, {&MSB2, &MIB2, &(int) { 3 }, &isBlackJack}, {&MSB3, &MIB3, &(int) { 4 }, &isBlackJack}
-																		,{&MSB4, &MIB4, &(int) { 5 }, &isBlackJack}, {&MSB5, &MIB5, &(int) { 6 }, &isBlackJack} };
+	void* MatroidsB[5][4] = { {&MSB1, &MIB1, &(int) { 4 }, &isAlphabet}, {&MSB2, &MIB2, &(int) { 3 }, &isAlphabet}, {&MSB3, &MIB3, &(int) { 4 }, &isAlphabet}
+																		,{&MSB4, &MIB4, &(int) { 5 }, &isAlphabet}, {&MSB5, &MIB5, &(int) { 6 }, &isAlphabet} };
 
 	//void* Matroids[4] = { &(void*) { MS }, &(void*){MI},&(void*) { MS2 }, &(void*){MI2} };
 
@@ -122,7 +117,9 @@ int main() {
 	printMI(&MIB3, 4);
 	printMI(&MIB4, 5);
 	printMI(&MIB5, 6);
+	printf("----------------- \n");
 
+	intersections(&MIB1, &MIB2, &MIB3, &MIB4, &MIB5, 2);
 	system("PAUSE");
 	return 0;
 }
