@@ -52,17 +52,33 @@ void intersections(void* (*Matroids)[5][4], int numero) {
 	void* (*MI2)[] = (*Matroid2)[1];
 	void* (*MI3)[] = (*Matroid3)[1];
 	void* (*MI4)[] = (*Matroid4)[1];
+	void* (*MI5)[] = (*Matroid5)[1];
 
 	int arraySize1 = *((int*)((*Matroid1)[2]));
 	int arraySize2 = *((int*)((*Matroid2)[2]));
 	int arraySize3 = *((int*)((*Matroid3)[2]));
 	int arraySize4 = *((int*)((*Matroid4)[2]));
+	int arraySize5 = *((int*)((*Matroid5)[2]));
+	
+	void* (*Intersections1)[] = malloc(arraySize1 * sizeof(void*));
+	void* (*Intersections2)[] = malloc(arraySize4 * sizeof(void*));
+	void* (*Intersections3)[] = malloc(arraySize4 * sizeof(void*));
+	void* (*Intersections4)[] = malloc(arraySize5 * sizeof(void*));
 
-	void* (*Intersections1)[] = malloc(arraySize1 * sizeof(int));
-	void* (*Intersections2)[] = malloc(arraySize4 * sizeof(int));
-	void* (*Intersections3)[] = malloc(arraySize4 * sizeof(int));
+	for (int i = 0; i < arraySize1; i++) {
+		(*Intersections1)[i] = &(int) { 0 };
+	}
+	for (int i = 0; i < arraySize4; i++) {
+		(*Intersections2)[i] = &(int) { 0 };
+	}
+	for (int i = 0; i < arraySize4; i++) {
+		(*Intersections3)[i] = &(int) { 0 };
+	}
+	for (int i = 0; i < arraySize5; i++) {
+		(*Intersections4)[i] = &(int) { 0 };
+	}
 
-	int interMI1, interMI2;
+	int interMI1, interMI2, cont = 0;
 
 #pragma omp parallel 
 	{
@@ -72,10 +88,13 @@ void intersections(void* (*Matroids)[5][4], int numero) {
 			for (interMI1 = 0; interMI1 < arraySize1; interMI1++) {
 				printf("Section 1, Thread = %d \n", omp_get_thread_num());
 				for (interMI2 = 0; interMI2 < arraySize2; interMI2++) {
-					if (*(int*)((*MI1)[interMI1]) == *(int*)((*MI2)[interMI2])) {
+					if (*(int*)((*MI1)[interMI1]) == *(int*)((*MI2)[interMI2]) && *(int*)((*MI1)[interMI1]) != 0) {
 						(*Intersections1)[interMI1] = (*MI1)[interMI1];
-						printf("Prueba %d \n", 2);
+						//printf("Prueba interseccion 1 %d \n", *(int*)((*Intersections1)[interMI1]));
 						break;
+					}
+					else {
+						(*Intersections1)[interMI1] = &(int) { 0 };
 					}
 				}
 			}
@@ -85,23 +104,43 @@ void intersections(void* (*Matroids)[5][4], int numero) {
 				for (interMI2 = 0; interMI2 < arraySize3; interMI2++) {
 					if (*(int*)((*MI4)[interMI1]) == *(int*)((*MI3)[interMI2]) && *(int*)((*MI4)[interMI1]) != 0) {
 						(*Intersections2)[interMI1] = (*MI4)[interMI1];
-						printf("Prueba %d \n", 4);
+						//printf("Prueba interseccion 2 %d \n", *(int*)((*Intersections2)[interMI1]));
 						break;
+					}
+					else {
+						(*Intersections2)[interMI1] = &(int) { 0 };
 					}
 				}
 			}
 		}
 	}
-#pragma omp barrier
-#pragma omp for
-	for (interMI1 = 0; interMI1 < arraySize4; interMI1++) {
-		printf("Part 3, Thread = %d \n", omp_get_thread_num());
-		for (interMI2 = 0; interMI2 < arraySize1; interMI2++) {
-			if (*(int*)((*MI4)[interMI1]) == *(int*)((*MI3)[interMI2])) {
+
+	for (interMI1 = 0; interMI1 < arraySize1; interMI1++) {
+		for (interMI2 = 0; interMI2 < arraySize4; interMI2++) {
+			if (*(int*)((*Intersections1)[interMI1]) == *(int*)((*Intersections2)[interMI2]) && *(int*)((*Intersections1)[interMI1]) != 0) {
 				(*Intersections3)[interMI1] = (*Intersections1)[interMI1];
-				printf("Prueba %d \n", 8);
+				//printf("Prueba interseccion 3 %d \n", *(int*)((*Intersections3)[interMI1]));			
 				break;
 			}
+			else {
+				(*Intersections3)[interMI1] = &(int) { 0 };
+				//printf("Prueba interseccion 3 %d \n", *(int*)((*Intersections3)[interMI1]));
+			}
 		}
+	}
+
+	for (int interMI1 = 0; interMI1 < arraySize5; interMI1++) {
+		for (int interMI2 = 0; interMI2 < arraySize4; interMI2++) {
+			printf("Prueba interseccion 4 aqui %d \n", *(int*)((*Intersections3)[interMI2]));
+			if (*(int*)((*MI5)[interMI1]) == *(int*)((*Intersections3)[interMI2]) && *(int*)((*MI5)[interMI1]) != 0) {
+				(*Intersections4)[interMI1] = (*MI5)[interMI1];
+				//printf("Prueba interseccion 4 %d \n", *(int*)((*Intersections4)[interMI1]));
+				break;
+			}
+			else {
+				(*Intersections4)[interMI1] = &(int) { 0 };
+				//printf("Prueba interseccion 4 %d \n", *(int*)((*Intersections4)[interMI1]));
+			}
+		}	
 	}
 }
