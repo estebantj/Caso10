@@ -41,7 +41,7 @@ void evaluateMatroidsB(void* (*Matroids)[5][4], int size) {
 	}
 }
 
-void intersections(void* (*Matroid1)[4], void* (*Matroid2)[4], void* (*Matroid3)[4], void* (*Matroid4)[4], void* (*Matroid5)[4], int numero) {
+void intersections(void* (*Matroids)[5][4], int numero) {
 	void* (*Matroid1)[4] = (*Matroids)[0];
 	void* (*Matroid2)[4] = (*Matroids)[1];
 	void* (*Matroid3)[4] = (*Matroids)[2];
@@ -104,10 +104,4 @@ void intersections(void* (*Matroid1)[4], void* (*Matroid2)[4], void* (*Matroid3)
 			}
 		}
 	}
-
-	int number = *(int*)((*Intersections1)[0]);
-	printf("Revisemos %d \n", number);
-
-	int number1 = *(int*)((*Intersections2)[0]);
-	printf("Revisemos %d \n", number1);
 }

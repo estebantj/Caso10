@@ -119,7 +119,7 @@ int main() {
 	printMI(&MIB5, 6);
 	printf("----------------- \n");
 
-	intersections(&MIB1, &MIB2, &MIB3, &MIB4, &MIB5, 2);
+	intersections(&MatroidsB, 2);
 	system("PAUSE");
 	return 0;
 }
